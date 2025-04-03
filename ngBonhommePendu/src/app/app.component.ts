@@ -86,6 +86,20 @@ export class AppComponent {
           this.gameData.guessedLetters.push(event.letter);
           break;
         }
+        case "Win": {
+          this.gameData.won = true;
+          break;
+        }
+        case "Lose": {
+          this.gameData.lost = true;
+          this.wronglyGuessedWord = event.word;
+          setTimeout(() => this.hangman.showMore(), 1000)
+          break;
+        }
+        case "GuessedLetter": {
+          this.gameData.guessedLetters.push(event.letter);
+          break;
+        }
       }
 
       if(event.events){
